@@ -1,4 +1,5 @@
 import random
+
 print("HELLO, WELCOME!!!👋👋");
 
 options = ["rock", "paper", "scissors"]
