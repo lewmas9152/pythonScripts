@@ -23,12 +23,31 @@ def get_number_of_racers():
 
 def create_turtles(colors):
     turtles = []
-    for i, racer in enumerate(colors):
+    spacingX = WIDTH // (len(colors) + 1)
+    for i, color in enumerate(colors):
         racer =turtle.Turtle()
-        racer.forward(2)
+        racer.color(color)
+        racer.shape("turtle")
+        racer.left(90)
+        racer.penup()
+        racer.setpos(-WIDTH//2 + (i+1)* spacingX, -HEIGHT//2 +20)
+        racer.pendown()
         turtles.append(racer)
     
     return turtles
+
+
+def race(colors):
+    turtles = create_turtles(colors)
+
+    while True:
+        for racer in turtles:
+            distance = random.randrange(1,20)
+            racer.forward(distance)
+
+            x,y = racer.pos()
+            if y>= HEIGHT//2 -10:
+                return colors[turtles.index(racer)]
 
 
 def init_turtle():
@@ -43,8 +62,9 @@ def main():
     init_turtle()
     random.shuffle(COLORS)
     colors = COLORS[:racers]
-    turtles = create_turtles(colors)
-    time.sleep(20)
+    winner = race(colors)
+    print("The winning turtle is the one colored", winner)
+    time.sleep(5)
     
 main()
 
