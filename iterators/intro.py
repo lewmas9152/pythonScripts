@@ -28,7 +28,16 @@ print(next(nums_2))
 print(next(nums_2))
 
 # when you reach the end of the iterator and try to run the next method again you receive an exception i.e.StopIteration
-print(next(nums_2))
+# print(next(nums_2))
+
+# to prevent running into a StopIteration exception you can use try except method'
+
+while True:
+        try:
+            print(next(nums_2))
+        except StopIteration:
+            break
+
 
 
 
