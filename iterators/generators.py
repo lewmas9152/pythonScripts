@@ -1,8 +1,10 @@
-def my_iterator(nums):
-    for num in nums:
-        print("yielding numbers")
-        yield num
+def my_range(start,end):
+    current = start
+    while current<end:
+        yield current
+        current +=1
     
 
-my_iterator([1,2,3,4,5])
+for num in my_range(1,8):
+    print (num)
 
